@@ -17,3 +17,7 @@ spec:
       admin:
         username: '{{repl ConfigOption "admin_username"}}'
         password: '{{repl ConfigOption "admin_password"}}'
+    xray:
+      enabled: '{{repl ConfigOption "xray_enabled"}}'
+    mission-control:
+      enabled: '{{repl ConfigOption "mission_control_enabled"}}'

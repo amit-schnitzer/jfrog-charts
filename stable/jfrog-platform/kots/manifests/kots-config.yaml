@@ -15,3 +15,14 @@ spec:
           title: Admin Password
           type: password
           default: password
+    - name: Optional_Components
+      title: Artifactory Optional Components
+      items:
+        - name: xray_enabled
+          title: Enable xray component
+          type: bool
+          default: false 
+        - name: mission_control_enabled
+          title: Enable mission control component
+          type: bool
+          default: false 
