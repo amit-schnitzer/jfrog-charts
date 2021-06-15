@@ -8,7 +8,7 @@ spec:
   registry:
     version: 2.7.1
   kotsadm:
-    version: 1.30.0
+    version: latest
     uiBindPort: 30880
   minio:
     version: latest
