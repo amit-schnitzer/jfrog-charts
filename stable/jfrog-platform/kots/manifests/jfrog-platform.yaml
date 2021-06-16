@@ -18,6 +18,6 @@ spec:
         username: '{{repl ConfigOption "admin_username"}}'
         password: '{{repl ConfigOption "admin_password"}}'
     xray:
-      enabled: '{{repl if ConfigOptionEquals "xray_enabled" "1"}}true{{repl else}}false{{repl end}}'
+      enabled: repl{{if ConfigOptionEquals "xray_enabled" "1"}}truerepl{{else}}falserepl{{ end}}
     mission-control:
-      enabled: '{{repl if ConfigOptionEquals "mission_control_enabled" "1"}}true{{repl else}}false{{repl end}}'
+      enabled: repl{{if ConfigOptionEquals "mission_control_enabled" "1"}}truerepl{{ else}}falserepl{{ end}}

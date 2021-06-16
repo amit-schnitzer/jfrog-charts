@@ -64,4 +64,4 @@ spec:
           title: Postgres Database
           when: '{{repl ConfigOptionEquals "postgres_type" "external_postgres_inline"}}'
           type: text
-          default: sentry
+          default: database
