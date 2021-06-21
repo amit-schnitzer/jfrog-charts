@@ -5,6 +5,7 @@ metadata:
 spec:
   title: JFrog
   icon: https://support.jfrog.com/resource/1547111714000/BR_JFC_Resource/img/jfrog-logo.png
+  requireMinimalRBACPriveliges: true
   statusInformers:
     - deployments/jfrog-platform-nginx
   ports:
