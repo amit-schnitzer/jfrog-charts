@@ -18,6 +18,9 @@ spec:
     - name: Optional_Components
       title: Artifactory Optional Components
       items:
+        - name: distribution
+          value: '{{repl Distribution}}'
+          hidden: true
         - name: xray_enabled
           title: Enable xray component
           type: bool
