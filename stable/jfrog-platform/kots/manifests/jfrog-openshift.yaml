@@ -8,4 +8,19 @@ spec:
   chart:
     name: openshift-artifactory-ha
     chartVersion: 4.13.0
-
+  values:
+    nginx:
+      service:
+        type: ClusterIP
+    artifactory:
+      admin:
+        username: '{{repl ConfigOption "admin_username"}}'
+        password: '{{repl ConfigOption "admin_password"}}'
+    xray:
+      enabled: repl{{ConfigOption "xray_enabled" | ParseBool}}
+    mission-control:
+      enabled: repl{{ConfigOption "mission_control_enabled" | ParseBool}}
+    distibution:
+      enabled: repl{{ConfigOption "distribution_enabled" | ParseBool}}
+    pipelines:
+      enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool}}
