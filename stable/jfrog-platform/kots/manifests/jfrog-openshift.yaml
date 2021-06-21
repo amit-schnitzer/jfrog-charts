@@ -2,9 +2,10 @@ apiVersion: kots.io/v1beta1
 kind: HelmChart
 metadata:
   name: jfrog-platform
-  annotations:
-    kots.io/when: '{{repl eq (Distribution) "openShift" }}'
+#  annotations:
+#    kots.io/when: '{{repl eq (Distribution) "openShift" }}'
 spec:
+  exclude: '{{repl not (eq (Distribution) "openShift") }}'
   chart:
     name: openshift-artifactory-ha
     chartVersion: 4.13.0
