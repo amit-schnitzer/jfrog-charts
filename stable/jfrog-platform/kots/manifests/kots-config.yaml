@@ -26,6 +26,14 @@ spec:
           title: Enable mission control component
           type: bool
           default: false 
+        - name: distribution_enabled
+          title: Enable distribution component
+          type: bool
+          default: false 
+        - name: pipelines_enabled
+          title: Enable pipelines component
+          type: bool
+          default: false 
         - name: postgres_type
           type: select_one
           title: Postgres
