@@ -3,7 +3,7 @@ kind: HelmChart
 metadata:
   name: jfrog-platform
   annotations:
-    kots.io/when: '{{repl eq (Distribution) "openshift" }}'
+    kots.io/when: '{{repl not eq (Distribution) "openshift" }}'
 spec:
   helmVersion: v3
   chart:
@@ -20,8 +20,8 @@ spec:
     xray:
       enabled: repl{{ConfigOption "xray_enabled" | ParseBool}}
     mission-control:
-      enabled: repl{{ConfigOption "mission_control_enabled" | ParseBool }}
+      enabled: repl{{ConfigOption "mission_control_enabled" | ParseBool}}
     distibution:
-      enabled: repl{{ConfigOption "distribution_enabled" | ParseBool }}
+      enabled: repl{{ConfigOption "distribution_enabled" | ParseBool}}
     pipelines:
-      enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool }}
+      enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool}}
