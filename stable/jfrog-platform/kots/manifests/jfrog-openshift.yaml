@@ -13,6 +13,7 @@ spec:
     artifactory-ha:
       artifactory:
         uid: "1000630200"
+        gid: "1000630200"
       nginx:
         uid: "1000630201"
         gid: "1000630201"
