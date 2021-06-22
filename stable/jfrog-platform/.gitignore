@@ -1,2 +1,2 @@
-kots/manifests/*.tgz
-!kots/manifests/openshift-artifactory-ha-4.13.0.tgz
+#kots/manifests/*.tgz
+#!kots/manifests/openshift-artifactory-ha-4.13.0.tgz
