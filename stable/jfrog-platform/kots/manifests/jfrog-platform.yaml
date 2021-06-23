@@ -27,7 +27,7 @@ spec:
     pipelines:
       enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool}}
   optionalValues:
-    - when: {{repl eq (Distribution) "eks" }}
+    - when: '{{repl eq (Distribution) "eks" }}'
       values:
         artifactory:
           nginx:
