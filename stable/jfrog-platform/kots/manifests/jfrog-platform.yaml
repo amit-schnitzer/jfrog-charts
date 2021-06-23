@@ -5,7 +5,7 @@ metadata:
 #  annotations:
 #    kots.io/when: '{{repl not (eq (Distribution) "openShift") }}'
 spec:
-  exclude: '{{c }}'
+  exclude: '{{repl eq (Distribution) "openShift" }}'
   helmVersion: v3
   chart:
     name: jfrog-platform
@@ -29,7 +29,7 @@ spec:
   optionalValues:
     - when: '{{repl eq (Distribution) "eks" }}'
       values:
-        artifactory:
+        artifactory-ha:
           nginx:
             service:
               type: LoadBalancer
