@@ -5,16 +5,16 @@ metadata:
 #  annotations:
 #    kots.io/when: '{{repl not (eq (Distribution) "openShift") }}'
 spec:
-  exclude: '{{repl eq (Distribution) "openShift" }}'
+  exclude: '{{c }}'
   helmVersion: v3
   chart:
     name: jfrog-platform
     chartVersion: 0.4.1
   values:
-    nginx:
-      service:
-        type: ClusterIP
     artifactory:
+      nginx:
+        service:
+          type: NodePort
       admin:
         username: '{{repl ConfigOption "admin_username"}}'
         password: '{{repl ConfigOption "admin_password"}}'
@@ -26,3 +26,10 @@ spec:
       enabled: repl{{ConfigOption "distribution_enabled" | ParseBool}}
     pipelines:
       enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool}}
+  optionalValues:
+    - when: {{repl eq (Distribution) "eks" }}
+      values:
+        artifactory:
+          nginx:
+            service:
+              type: LoadBalancer
