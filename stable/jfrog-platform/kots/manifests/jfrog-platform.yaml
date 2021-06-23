@@ -23,9 +23,9 @@ spec:
     mission-control:
       enabled: repl{{ConfigOption "mission_control_enabled" | ParseBool}}
     distibution:
-      enabled: repl{{ConfigOption "distribution_enabled" | ParseBool}}
+      enabled: false
     pipelines:
-      enabled: repl{{ConfigOption "pipelines_enabled" | ParseBool}}
+      enabled: false
   optionalValues:
     - when: '{{repl eq (Distribution) "eks" }}'
       values:
