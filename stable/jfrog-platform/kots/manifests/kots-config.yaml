@@ -22,7 +22,7 @@ spec:
           value: '{{repl Distribution}}'
           hidden: true
         - name: xray_enabled
-          title: Enable xray component
+          title: Enable xray component (security code scanning) 
           type: bool
           default: false 
         - name: mission_control_enabled
