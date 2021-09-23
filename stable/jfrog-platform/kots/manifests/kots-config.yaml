@@ -26,7 +26,7 @@ spec:
           type: bool
           default: false 
         - name: mission_control_enabled
-          title: Enable mission control component
+          title: Enable Mission control component
           type: bool
           default: false 
         - name: distribution_enabled
