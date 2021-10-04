@@ -83,10 +83,18 @@ spec:
         outcomes:
           - Warn:
               when: count() < 2
-              message: Only 1 node identified - it is strongly recommended to run each JFrog product on its own separate server
+              message: Only 1 node identified 
           - Warn:
               when: count() < 5 
               message: it is strongly recommended to run each JFrog product on its own separate server
           - pass:
               when: count() > 4
               message: This cluster has enough nodes.
+    - customResourceDefinition:
+        customResourceDefinitionName: constrainttemplates.templates.gatekeeper.sh
+        checkName: Gatekeeper policy runtime is installed
+        outcomes:
+          - fail:
+              message: Gatekeeper is required for the application, but not found in the cluster.
+          - pass:
+              message: Found a supported version of Gatekeeper installed and running in the cluster.
