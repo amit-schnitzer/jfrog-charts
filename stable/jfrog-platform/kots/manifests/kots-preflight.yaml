@@ -57,13 +57,35 @@ spec:
           - warn:
               message: Unable to determine the distribution of Kubernetes
     - nodeResources:
+        checkName: Must have at least 3 nodes in the cluster
+        outcomes:
+          - fail:
+              when: count() < 3
+              message: This application requires at least 3 nodes
+          - warn:
+              when: count() < 6
+              message: This application recommends at last 6 nodes.
+          - pass:
+              message: This cluster has enough nodes.
+    - nodeResources:
         checkName: Total CPU Cores in the cluster is 2 or greater
         outcomes:
           - fail:
               when: "sum(cpuCapacity) < 2"
               message: The cluster must contain at least 2 cores
-          - fail:
+          - warn:
               when: "sum(cpuCapacity) < 4"
-              message: The cluster must contain at least 4 cores
+              message: It is recommended to have 4 CPU cores in the cluster
           - pass:
-              message: There are at least 2 cores in the cluster!
+              message: Cluster meets the minimum required CPU resources 
+    - nodeResources:
+        checkName: One node must have 16 GB RAM and 8 CPU Cores
+        filters:
+          allocatableMemory: 16Gi
+          cpuCapacity: "8"
+        outcomes:
+          - fail:
+              when: count() < 1
+              message: Cannot find a node with sufficient memory and cpu
+          - pass:
+              message: Sufficient CPU and memory is available
