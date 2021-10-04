@@ -102,18 +102,7 @@ spec:
               message: Gatekeeper is required for the application, but not found in the cluster.
           - pass:
               message: Found a supported version of Gatekeeper installed and running in the cluster.
-    - postgres:
-        checkName: Must be PostgreSQL 10.x or later
-        collectorName: postgresql
-        outcomes:
-          - fail:
-              when: connected == false
-              message: Cannot connect to PostgreSQL server
-          - fail:
-              when: version < 10.x
-              message: The PostgreSQL server must be at least version 10
-          - pass:
-              message: The PostgreSQL server is ready
+
 #     - postgres:
 #        checkName: Must be PostgreSQL 10.x or later
 #        collectorName: postgresql
