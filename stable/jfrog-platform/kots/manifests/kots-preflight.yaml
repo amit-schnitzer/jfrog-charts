@@ -82,8 +82,11 @@ spec:
         checkName: Number of nodes in the cluster
         outcomes:
           - Warn:
-              when: count() < 2
+              when: count() = 1
               message: Only 1 node identified - While not a strict requirement, it is strongly recommended to run each JFrog product on its own separate server
+          - Warn:
+              when: count() < 6 
+              message: While not a strict requirement, it is strongly recommended to run each JFrog product on its own separate server
           - pass:
               when: count() > 5
               message: This cluster has enough nodes.
